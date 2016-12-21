@@ -17,10 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from app.api import taskEntry, taskDetail
+from app.views import TaskFormView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
+    url(r'^home/$', TaskFormView.as_view()),
     url(r'^api/tasks/$', taskEntry.as_view()),
     url(r'^api/tasks/(?P<pk>[0-9]+)/$', taskDetail.as_view()),
 ]
